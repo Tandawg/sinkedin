@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { TypeORMAdapter } from "@auth/typeorm-adapter";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "@/lib/mongodb";
 
 export const authOptions = {
   providers: [
@@ -9,15 +10,8 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
-  adapter: TypeORMAdapter({
-    type: "mongodb",
-    url: process.env.MONGODB_URI,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    synchronize: true,
-    logging: true,
-    entities: [],
-  }),
+  adapter: MongoDBAdapter(clientPromise),
+
   secret: process.env.JWT_SECRET,
   pages: {
     signIn: "/home",

@@ -20,14 +20,14 @@ const spring = {
 
 export const Header = () => {
   const [mounted, setMounted] = useState(false);
-  const { setTheme, resolvedTheme, theme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
-  console.log("current theme is", theme);
+  console.log("current theme is", resolvedTheme);
   return (
     <header className="sticky top-0 z-50 bg-white  dark:bg-[#1D2226] flex items-center justify-around py-1.5 px-3 focus-within:shadow-lg">
       {/* Left */}
-      <div className="flex items-center space-x-2 w-full max-w-xs bg-[#EDF3F8] ">
+      <div className="flex items-center space-x-2 w-full max-w-xs ">
         {mounted && (
           <>
             {resolvedTheme === "dark" ? (
@@ -47,7 +47,7 @@ export const Header = () => {
             )}
           </>
         )}
-        <div className="flex items-center space-x-1 dark:md:bg-gray-700 py-2.5 px-4 w-full">
+        <div className="flex md:bg-[#EDF3F8] items-center space-x-1 dark:md:bg-gray-700 py-2.5 px-4 w-full">
           <SearchRoundedIcon />
           <input
             type="text "
@@ -73,13 +73,13 @@ export const Header = () => {
             onClick={() =>
               setTheme(resolvedTheme === "dark" ? "light" : "dark")
             }>
-            <span className="absolute left-1">🌞</span>
+            <span className="absolute left-0.5">🌙</span>
             <motion.div
               className="w-5 h-5 bg-white rounded-full z-50"
               layout
               transition={spring}
             />
-            <span className="absolute right-1">🌙</span>
+            <span className="absolute right-0.5">☀</span>
           </div>
         )}
       </div>

@@ -1,13 +1,19 @@
 import "@/styles/globals.css";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
+import { RecoilRoot } from "recoil";
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
-    <SessionProvider session={pageProps.session}>
-      <ThemeProvider theme={{}} attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
+    <SessionProvider session={session}>
+      <RecoilRoot>
+        <ThemeProvider attribute="class">
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </RecoilRoot>
     </SessionProvider>
   );
 }

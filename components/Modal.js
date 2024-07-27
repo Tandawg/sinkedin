@@ -93,7 +93,7 @@ const Modal = ({ handleClose, type }) => {
           initial="hidden"
           animate="visible"
           exit="exit">
-          <motion.img
+          {/* <motion.img
             alt=""
             onDoubleClick={handleClose}
             src={post.photoUrl}
@@ -101,7 +101,7 @@ const Modal = ({ handleClose, type }) => {
           />
           <div className="w-full md:w-3/5 bg-white dark:bg-[#1D2226] rounded-r-lg">
             <Post post={post} modalPost />
-          </div>
+          </div> */}
         </motion.div>
       )}
     </Backdrop>

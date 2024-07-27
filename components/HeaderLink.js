@@ -1,6 +1,6 @@
 import { useSession, signOut } from "next-auth/react";
 
-function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
+const HeaderLink = ({ Icon, text, feed, active, avatar, hidden }) => {
   const { data: session } = useSession();
 
   return (
@@ -31,6 +31,6 @@ function HeaderLink({ Icon, text, feed, active, avatar, hidden }) {
       )}
     </div>
   );
-}
+};
 
 export default HeaderLink;

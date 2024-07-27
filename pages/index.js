@@ -1,13 +1,13 @@
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import Head from "next/head";
 import { getSession, signOut, useSession } from "next-auth/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Feed } from "@/components/Feed";
+import Feed from "@/components/Feed";
 import { AnimatePresence } from "framer-motion";
-import { Modal } from "@/components/Modal";
+import Modal from "@/components/Modal";
 import { useRecoilState } from "recoil";
 import { modalState, modalTypeState } from "@/atoms/modalAtom";
 

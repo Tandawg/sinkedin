@@ -1,4 +1,4 @@
-import { Avatar } from "@mui/material";
+import { Avatar, inputAdornmentClasses } from "@mui/material";
 import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
@@ -8,7 +8,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import { useRecoilState } from "recoil";
 import { modalState, modalTypeState } from "@/atoms/modalAtom";
 
-function Input() {
+const Input = () => {
   const { data: session } = useSession();
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [modalType, setModalType] = useRecoilState(modalTypeState);
@@ -53,6 +53,5 @@ function Input() {
       </div>
     </div>
   );
-}
-
+};
 export default Input;
